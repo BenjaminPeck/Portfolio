@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../layout.css">
+    <link rel="stylesheet" href="contactMe.css">
+    <title>Get in touch</title>
+</head>
+<body>
+    <header>
+        <nav id="navbar"></nav>
+    </header>
+    <main class="layoutContactMe">
+        <section class="font1">
+            <h1>Contact Me</h1>
+            <form>
+                <label for="fname">FIRST NAME:</label>
+                <label for="Sname">SURNAME:</label><br>
+                <input required type="text" id="fname" name="fname" >
+                <input required type="text" id="Sname" name="Sname" ><br>
+                <label for="email">EMAIL:</label><br>
+                <input required type="email" id="email" name="email" class="emailInput"><br>
+                <label for="message">MESSAGE:</label><br>
+                <textarea required id="message" name="message" class="large-input" rows="4" oninput="autoResize(this)"></textarea><br><br>
+                <label for="Terms and conditions">Terms and conditions</label>
+                <input type="checkbox">
+                <input  type="submit" value="Submit" class="submit-button">
+            </form>
+        </section>
+    </main>
+    <script>
+        // Fetch the navbar and insert it into the #navbar nav
+        async function loadNavbar() {
+            try {
+                const response = await fetch('../navBar/navigationBar.html');
+                if (!response.ok) throw new Error('Network response was not ok');
+                const data = await response.text();
+                document.getElementById('navbar').innerHTML = data;
+                document.querySelector('main').classList.add('fade-in');
+            } catch (error) {
+                console.error('Error loading navbar:', error);
+            }
+        }
+        // Load navbar after the content
+        loadNavbar();
+
+        // Auto-resize textarea based on content
+        function autoResize(textarea) {
+            textarea.style.height = 'auto'; // Reset the height
+            textarea.style.height.max = "100px";
+            textarea.style.height = textarea.scrollHeight; // Set the new height
+        }
+    </script>
+</body>
+</html>
