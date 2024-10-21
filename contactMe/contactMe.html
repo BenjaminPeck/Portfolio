@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <nav id="navbar"></nav>
+        <nav class="navbar"></nav>
     </header>
     <main class="layoutContactMe">
         <section class="font1">
@@ -36,7 +36,7 @@
                 const response = await fetch('../navBar/navigationBar.html');
                 if (!response.ok) throw new Error('Network response was not ok');
                 const data = await response.text();
-                document.getElementById('navbar').innerHTML = data;
+                document.querySelector('.navbar').innerHTML = data;
                 document.querySelector('main').classList.add('fade-in');
             } catch (error) {
                 console.error('Error loading navbar:', error);

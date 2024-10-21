@@ -6,7 +6,7 @@ body {
     
 }
 .layout {
-    display: fiex;           /* Add Flexbox display */
+    display: flex;           /* Add Flexbox display */
     width: 80vw;           /* Width of the body content */
     background-color: #ffffff; /* Background color */
     border: 0.3vw solid #333; /* Border color and thickness */
